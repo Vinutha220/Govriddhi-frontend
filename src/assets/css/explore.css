@@ -1,0 +1,78 @@
+.explore-cows {
+    padding: 60px 20px;
+    background: #f8f9fa;
+    min-height: 100vh;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.explore-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #264653;
+    font-weight: bold;
+}
+.page-subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+
+.cows-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.cow-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.cow-card:hover {
+    transform: translateY(-5px);
+}
+
+.cow-imagee {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.cow-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.cow-info h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: #2a9d8f;
+}
+
+.cow-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.adopt-btn {
+    background-color: #f4a261;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.adopt-btn:hover {
+    background-color: #e76f51;
+}
