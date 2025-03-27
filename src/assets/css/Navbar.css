@@ -1,0 +1,102 @@
+/* Navbar container */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Logo */
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* Desktop Links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #f4a261; 
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Mobile Menu Open State */
+.menu-toggle .bar.open:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle .bar.open:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle .bar.open:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu Links (hidden by default) */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        display: none;
+    }
+
+    .nav-links.nav-open {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
