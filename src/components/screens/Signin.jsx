@@ -26,13 +26,19 @@ const SigninSignup = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000/login", formData);
-      const { token } = response.data;
-
+      const response = await axios.post("http://127.0.0.1:5000/loginn", formData);
+      const  token  = response.data.token;
+      
+      
+      if(response.data.role == "user"){
+        alert("User login successful!");
+        window.location.href = "/home";
+      }
+      else{
+      alert("Goshala login successful!");
+      window.location.href = "/GohomePage";
+      }
       localStorage.setItem("token", token);
-
-      alert("Login successful!");
-      window.location.href = "/home";
     } catch (err) {
       setError("Somenthing went wrong",err);
       
