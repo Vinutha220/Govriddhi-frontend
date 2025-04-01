@@ -4,6 +4,7 @@ import '../assets/css/Navbar.css';
 import { Link } from 'react-router-dom';
 import MyRequestsModal from './MyRequestsModal'; 
 
+
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isRequestsModalOpen, setIsRequestsModalOpen] = useState(false);
@@ -31,7 +32,7 @@ export default function Navbar() {
                     <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
                         <Link to="/home" className="nav-link">Home</Link>
                         <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); openRequestsModal(); }}>My Requests</a>
-                        <Link to="/home" className="nav-link">Goshalas</Link>
+                        <Link to="/goshalas" className="nav-link">Gaushalas</Link>
                         <Link to="/home" className="nav-link">Contact</Link>
                         <Link to="/logout" className="nav-link">Logout</Link>
                         

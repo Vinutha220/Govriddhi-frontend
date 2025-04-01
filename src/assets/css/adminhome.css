@@ -1,0 +1,49 @@
+.admin-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .gaushala-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 500px; 
+    overflow-y: auto;
+    padding: 10px;
+  }
+  
+  .gaushala-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: left;
+  }
+  
+  .action-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .approve-btn {
+    background: green;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .reject-btn {
+    background: red;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

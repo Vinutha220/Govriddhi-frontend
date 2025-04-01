@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import '../assets/css/Navbar.css';
+import '../../assets/css/Navbar.css';
 import { Link } from 'react-router-dom';
 
 
@@ -26,8 +26,8 @@ export default function Nav() {
                     <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
                         
                         
-                        <Link to="/GoReg" className="nav-link">Gaushala Registration</Link>
-                        
+                        <Link to="/admin" className="nav-link" style={{color:"white"}}>Admin dashboard</Link>
+                        <Link to="/logout" className="nav-link" style={{color:"white"}}>Logout</Link>
                         
 
                     </nav>

@@ -49,7 +49,7 @@ const AdoptionFormModal = ({ cow, onClose }) => {
     return (
         <div className="modal-overlay">
             <div className="modal-content">
-                <h2>Adopt {cow.name}</h2>
+                <h2 style={{color:"green"}}>Adopt {cow.name}</h2>
                 {error && <p className="error-message">{error}</p>}
                 <form onSubmit={handleSubmit}>
                     <input
