@@ -17,6 +17,8 @@ import GoshalaUser from './components/screens/GoshalaUser';
 import Cows from './components/screens/cows';
 import AdminGaushalaApproval from './components/admin/AdminHome';
 import PendingPage from './components/screens/PendingPage';
+import ContactUs from './components/screens/Contact';
+import ProfileForm from './components/screens/ProfileForm';
 
 
 
@@ -36,6 +38,8 @@ const Routing = ()=>{
       <Route path='/cows' element={<Cows/>}/>
       <Route path='/admin' element={<AdminGaushalaApproval/>}/>
       <Route path='/pending' element={<PendingPage/>}/>
+      <Route path='/contactUs' element={<ContactUs/>}/>
+      <Route path='/profileForm' element={<ProfileForm/>}/>
 
 
 

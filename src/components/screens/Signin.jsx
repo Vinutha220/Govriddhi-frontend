@@ -47,11 +47,18 @@ const SigninSignup = () => {
 
         }
         else{
+          if(response.data.profile==true){
+            window.location.href = "/profileForm";
+          }
+          else{
       alert("Goshala login successful!");
       window.location.href = "/GohomePage";
       console.log(response)
       localStorage.setItem("token", token);
+      localStorage.setItem("goshala",response.data.goshala)
+      localStorage.setItem("isProfile",response.data.profile)  
         }
+      }
       }
      
     } catch (err) {
