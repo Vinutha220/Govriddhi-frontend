@@ -28,7 +28,7 @@ const AdoptionFormModal = ({ cow, onClose }) => {
 
         const adoptionRequest = {
             ...formData,
-            cow_id: cow._id 
+            cow_id: cow.cow_id
         };
 
         try {

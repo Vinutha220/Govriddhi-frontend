@@ -2,24 +2,22 @@
 import React, { useState } from 'react';
 import '../assets/css/Navbar.css';
 import { Link } from 'react-router-dom';
-import MyRequestsModal from './MyRequestsModal'; 
 
 
-export default function Navbar() {
+
+  
+
+
+export default function Navbarr() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [isRequestsModalOpen, setIsRequestsModalOpen] = useState(false);
+
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
-    const openRequestsModal = () => {
-        setIsRequestsModalOpen(true);
-    };
+  
 
-    const closeRequestsModal = () => {
-        setIsRequestsModalOpen(false);
-    };
 
     return (
         <>
@@ -30,10 +28,9 @@ export default function Navbar() {
                     </div>
 
                     <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
-                        <Link to="/home" className="nav-link">Home</Link>
-                        <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); openRequestsModal(); }}>My Requests</a>
-                        <Link to="/goshalas" className="nav-link">Gaushalas</Link>
-                        <Link to="/contactUs" className="nav-link">Contact</Link>
+                      
+                        
+                        {/* <Link to="/home" className="nav-link">Contact</Link> */}
                         <Link to="/logout" className="nav-link">Logout</Link>
                         
 
@@ -48,8 +45,6 @@ export default function Navbar() {
                 </div>
             </header>
 
-            {/* My Requests Modal */}
-            {isRequestsModalOpen && <MyRequestsModal onClose={closeRequestsModal} />}
         </>
     );
 }

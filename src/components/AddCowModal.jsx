@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
-import '../assets/css/addCow.css';
+import React, { useState } from "react";
+import "../assets/css/addCow.css";
 
 export default function AddCowModal({ onClose, onAddCow }) {
     const [cowData, setCowData] = useState({
-        name: '',
-        breed: '',
-        healthCondition: '',
-        dob: '',
-        about: '',
-        image: null
+        name: "",
+        breed: "",
+        healthCondition: "",
+        dob: "",
+        about: "",
+        image: null,
     });
+
+    const token = localStorage.getItem("token");
 
     const handleChange = (e) => {
         setCowData({ ...cowData, [e.target.name]: e.target.value });
     };
 
     const handleImageChange = (e) => {
-        setCowData({ ...cowData, image: e.target.files[0] });
+        const file = e.target.files[0];
+        if (file) {
+            setCowData({ ...cowData, image: file });
+        }
     };
 
     const handleSubmit = async () => {
@@ -26,22 +31,27 @@ export default function AddCowModal({ onClose, onAddCow }) {
         }
 
         const formData = new FormData();
-        formData.append('name', cowData.name);
-        formData.append('breed', cowData.breed);
-        formData.append('healthCondition', cowData.healthCondition);
-        formData.append('dob', cowData.dob);
-        formData.append('about', cowData.about);
-        formData.append('image', cowData.image);
+        formData.append("name", cowData.name);
+        formData.append("breed", cowData.breed);
+        formData.append("healthCondition", cowData.healthCondition);
+        formData.append("dob", cowData.dob);
+        formData.append("about", cowData.about);
+        formData.append("image", cowData.image); 
 
         try {
-            const response = await fetch('http://localhost:5000/api/cows', {
-                method: 'POST',
-                body: formData
+            const response = await fetch("http://localhost:5000/add_cow", {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${token}`, 
+                },
+                body: formData,
             });
+
             const result = await response.json();
             if (response.ok) {
                 onAddCow(result);
                 onClose();
+                window.location.reload(); 
             } else {
                 alert("Error: " + result.message);
             }

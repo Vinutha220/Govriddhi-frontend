@@ -48,12 +48,13 @@ export default function ExploreCows() {
                 <div className="cows-grid">
                     {cows.map((cow, index) => (
                         <div key={index} className="cow-card">
-                            <img src={cow.image} alt={cow.name} className="cow-imagee" />
+                            <img src={`http://127.0.0.1:5000/${cow.image}`} alt={cow.name} className="cow-imagee" />
                             <div className="cow-info">
                                 <h2>{cow.name}</h2>
                                 <p><strong>Breed:</strong> {cow.breed}</p>
                                 <p><strong>Age:</strong> {cow.age} years</p>
-                                <p><strong>Health:</strong> {cow.health}</p>
+                                <p><strong>Health:</strong> {cow.healthCondition}</p>
+                                <p><strong>About:</strong> {cow.about}</p>
                                 <button className="adopt-btn" onClick={() => handleAdopt(cow)}>Adopt</button>
                             </div>
                         </div>

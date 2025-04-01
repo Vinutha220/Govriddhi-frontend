@@ -78,7 +78,7 @@ export default function NavbarGo() {
                     </div>
 
                     <nav className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
-                        <Link to="/home" className="nav-link">Home</Link>
+                        <Link to="/GohomePage" className="nav-link">Home</Link>
                         <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); openRequestsModal(); }}>Adoption Requests</a>
                         <a href="/#" className="nav-link" onClick={(e)=>{e.preventDefault();openAddCowModal();}}>Add Cows</a>
                         {/* <Link to="/home" className="nav-link">Contact</Link> */}
