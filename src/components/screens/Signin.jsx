@@ -28,17 +28,32 @@ const SigninSignup = () => {
     try {
       const response = await axios.post("http://127.0.0.1:5000/loginn", formData);
       const  token  = response.data.token;
+     
       
       
       if(response.data.role == "user"){
         alert("User login successful!");
         window.location.href = "/home";
+        localStorage.setItem("token", token);
+      }
+      else if(response.data.role == "admin"){
+        alert("Admin login successful!");
+        window.location.href = "/admin";
+        localStorage.setItem("token", token);
       }
       else{
+        if(response.data.approval==false){
+          window.location.href = "/pending";
+
+        }
+        else{
       alert("Goshala login successful!");
       window.location.href = "/GohomePage";
-      }
+      console.log(response)
       localStorage.setItem("token", token);
+        }
+      }
+     
     } catch (err) {
       setError("Somenthing went wrong",err);
       

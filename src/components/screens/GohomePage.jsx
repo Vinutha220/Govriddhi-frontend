@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../Navbar';
-import '../../assets/css/Homepage.css';
+import Navbar from '../NavbarGo';
+import '../../assets/css/Gohome.css';
 
 export default function GohomePage() {
   return (
@@ -8,14 +8,17 @@ export default function GohomePage() {
           <Navbar />
         
          
-            <div className="hero-section" style={{ backgroundImage: "url('/images/cowlanding.jpg')" }}>
+            <div className="hero-section" style={{ backgroundImage: "url('/images/GohomeImg.jpg')" }}>
                     <div className="overlay">
                         <div className="hero-content">
-                            <h1 className="hero-title">Welcome to Govriddhi</h1>
+                            <h1 className="hero-title">Welcome to Gaushala Management</h1>
                             <p className="hero-subtitle">
-                                Connecting Compassionate Hearts with Goshalas for Cow Welfare & Adoption
+                            Heaven on Earth  </p>
+                            <p className="hero-subtitle2">
+                           ART OF LIVING GAUSHALA
                             </p>
-                            <a href="/explore" className="btn-primary">Explore Cows</a>
+                            
+                            <a href="/dashboard" className="btn-primary">Dashboard</a>
                         </div>
                     </div>
             </div>

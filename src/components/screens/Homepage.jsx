@@ -8,17 +8,15 @@ export default function Homepage() {
     <>
       <Navbar />
       
-
-     
-
-   
-     
         <div className="hero-section" style={{ backgroundImage: "url('/images/cowlanding.jpg')" }}>
                 <div className="overlay">
                     <div className="hero-content">
                         <h1 className="hero-title">Welcome to Govriddhi</h1>
                         <p className="hero-subtitle">
-                            Connecting Compassionate Hearts with Goshalas for Cow Welfare & Adoption
+                        Where Cows are happy,Prosperity is there.
+                        </p>
+                        <p className="hero-subtitle">
+                        Where Cows are in Grief,Adversity is there.
                         </p>
                         <a href="/explore" className="btn-primary">Explore Cows</a>
                     </div>

@@ -61,7 +61,7 @@ const MyRequestsModal = ({ onClose }) => {
                 <div className="requests-list">
                     {requests.map((request) => (
                         <div key={request.id} className="request-card">
-                            <img src={request.image} alt={request.cowName} className="cow-image" />
+                            <img src={request.image} alt={request.cowName} className="cow-imagee" />
                             <div className="request-details">
                                 <h3>{request.cowName}</h3>
                                 <p><strong>Breed:</strong> {request.breed}</p>

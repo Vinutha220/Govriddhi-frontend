@@ -1,0 +1,170 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  /* Container */
+  .container9 {
+    min-height: 100vh;
+   
+  }
+  
+  /* Header */
+  .header9 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white; /* Add a background color to prevent transparency issues */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+  
+  .logo-container9 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo9 {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .title9 {
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(14, 4, 65);
+  }
+  
+  .nav-links9 a {
+    margin: 0 15px;
+    text-decoration: none;
+    /* color: #444; */
+  }
+  
+  .nav-links9 a.active {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .donate-btn9 {
+    background: orange;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .donate-btn9:hover {
+    background: darkorange;
+  }
+  
+  /* Hero Section */
+  .heroo {
+    text-align: center;
+    padding: 60px 20px;
+    /* background: #eef2f3; */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 300px;
+    
+  }
+  
+  .heroo h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: green;
+  }
+  
+  .heroo p {
+    color:rgb(14, 4, 65);
+    margin-top: 10px;
+  }
+  
+  .image-containerr {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+  }
+
+  .heroo h1{
+    font-size: 40px;
+  }
+  
+  .hero-image {
+    width: 520px;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
+    border-radius: 8px;
+  }
+  
+  /* Registration Form */
+  .form-section9 {
+    padding: 50px 20px;
+    background: white;
+    text-align: center;
+  }
+  
+  .form-section9 h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .register9{
+    color: black;
+    text-decoration: none;
+  }
+  
+  .form9 {
+    max-width: 900px;
+
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group9 {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group9 label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group9 input,
+  .form-group9 textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-btn9 {
+    background: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-btn9:hover {
+    background: darkgreen;
+  }
+  
