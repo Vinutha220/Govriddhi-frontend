@@ -19,6 +19,7 @@ import AdminGaushalaApproval from './components/admin/AdminHome';
 import PendingPage from './components/screens/PendingPage';
 import ContactUs from './components/screens/Contact';
 import ProfileForm from './components/screens/ProfileForm';
+import Info from './components/screens/Info';
 
 
 
@@ -40,6 +41,7 @@ const Routing = ()=>{
       <Route path='/pending' element={<PendingPage/>}/>
       <Route path='/contactUs' element={<ContactUs/>}/>
       <Route path='/profileForm' element={<ProfileForm/>}/>
+      <Route path='/info' element={<Info/>}/>
 
 
 

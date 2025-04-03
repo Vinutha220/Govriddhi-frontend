@@ -1,79 +1,3 @@
-// import React, { useState } from "react";
-// import Navbar from "../Navbar";
-// import "../../assets/css/goshalasUser.css";
-// import { Link } from "react-router-dom";
-// import GaushalaInfoCard from "../GaushalaInfoCard";
-
-// export default function GoshalaUser() {
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-//   const handleMore = () => {
-//     setIsModalOpen(true);
-//   };
-
-//   const handleFormClose = () => {
-//     setIsModalOpen(false);
-//   };
-
-//   return (
-//     <div>
-//       <Navbar />
-//       <div className="explore-goshalas">
-//         <h1>Our Gaushala Network</h1>
-
-//         <div className="goshalas-grid">
-//           {/* Goshala Card 1 */}
-//           <div className="goshala-card">
-//             <Link to="/cows" style={{ textDecoration: "none", color: "inherit" }}>
-//               <img src="/images/goshala3.jpg" alt="goshala" className="goshala-imagee" />
-//             </Link>
-//             <div className="goshala-info">
-//               <h2>Krishna Goshala</h2>
-//               <button className="moreInfo-btn" onClick={handleMore}>More info..</button>
-//             </div>
-//           </div>
-
-//           {/* Goshala Card 2 */}
-//           <div className="goshala-card">
-//             <Link to="/cows" style={{ textDecoration: "none", color: "inherit" }}>
-//               <img src="/images/goshala3.jpg" alt="goshala" className="goshala-imagee" />
-//             </Link>
-//             <div className="goshala-info">
-//               <h2>Radha Goshala</h2>
-//               <button className="moreInfo-btn" onClick={handleMore}>More info..</button>
-//             </div>
-//           </div>
-
-//           {/* Goshala Card 3 */}
-//           <div className="goshala-card">
-//             <Link to="/cows" style={{ textDecoration: "none", color: "inherit" }}>
-//               <img src="/images/goshala3.jpg" alt="goshala" className="goshala-imagee" />
-//             </Link>
-//             <div className="goshala-info">
-//               <h2>Govind Goshala</h2>
-//               <button className="moreInfo-btn" onClick={handleMore}>More info..</button>
-//             </div>
-//           </div>
-
-//           {/* Goshala Card 4 */}
-//           <div className="goshala-card">
-//             <Link to="/cows" style={{ textDecoration: "none", color: "inherit" }}>
-//               <img src="/images/goshala3.jpg" alt="goshala" className="goshala-imagee" />
-//             </Link>
-//             <div className="goshala-info">
-//               <h2>Nanda Goshala</h2>
-//               <button className="moreInfo-btn" onClick={handleMore}>More info..</button>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Modal Popup for More Info */}
-//         {isModalOpen && <GaushalaInfoCard onClose={handleFormClose} />}
-//       </div>
-//     </div>
-//   );
-// }
-
 
 import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar";
@@ -96,7 +20,7 @@ export default function GoshalaUser() {
         setGoshalas(response.data);
       } catch (err) {
         console.error("Error fetching goshalas:", err);
-        setError("Failed to load goshalas. Please try again.");
+        setError("Failed to load goshalas. Please try again later.");
       } finally {
         setLoading(false);
       }
@@ -105,7 +29,8 @@ export default function GoshalaUser() {
     fetchGoshalas();
   }, []);
 
-  const handleMore = (goshala) => {
+  const handleMore = (goshala) => (e) => {
+    e.preventDefault();
     setSelectedGoshala(goshala);
     setIsModalOpen(true);
   };
@@ -115,36 +40,92 @@ export default function GoshalaUser() {
     setSelectedGoshala(null);
   };
 
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Loading goshalas...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error-container">
+        <p className="error-message">{error}</p>
+        <button 
+          className="retry-button" 
+          onClick={() => window.location.reload()}
+        >
+          Try Again
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div className="goshala-user-container">
       <Navbar />
       <div className="explore-goshalas">
-        <h1>Our Gaushala Network</h1>
-
-        {loading && <p>Loading goshala data...</p>}
-        {error && <p style={{ color: "red" }}>{error}</p>}
-
-        <div className="goshalas-griddd">
-          {goshalas.map((goshala, index) => (
-            <div key={index} className="goshala-carddd">
-              {/* <Link to="/cows" style={{ textDecoration: "none", color: "inherit" }}>
-                <img src="/images/goshala3.jpg" alt="goshala" className="goshala-imagee" />
-              </Link> */}
-              <Link to={`/cows?goshalaId=${goshala.id}`} 
-              style={{ textDecoration: "none", color: "inherit" }}>
-              <img src="/images/goshala3.jpg" alt="goshala" className="goshala-imagee" />
-                </Link>
-              <div className="goshala-info">
-                <h2>{goshala.goshalaName || goshala.name}</h2>
-                <button className="moreInfo-btn" onClick={() => handleMore(goshala)}>More info..</button>
-              </div>
-            </div>
-          ))}
+        <div className="header-section">
+          <h1 className="main-title" style={{color:"green"}}>Our Gaushala Network</h1>
+          <p className="subtitle">Discover and connect with sacred cow shelters across the region</p>
         </div>
 
-        {/* Modal Popup for More Info */}
+        <div className="goshalas-grid">
+          {goshalas.length > 0 ? (
+            goshalas.map((goshala) => (
+              <div key={goshala._id || goshala.id} className="goshala-card2">
+                <Link 
+                  to={`/cows?goshalaId=${goshala._id || goshala.id}`} 
+                  className="goshala-link"
+                >
+                  <div className="image-container7">
+                    <img 
+                      src={
+                        goshala.image 
+                          ? `http://127.0.0.1:5000/${goshala.image}`
+                          : "/images/goshala-default.jpg"
+                      } 
+                      alt={goshala.goshalaName || goshala.name} 
+                      className="goshala-image5"
+                      onError={(e) => {
+                        e.target.src = "/images/goshala-default.jpg";
+                      }}
+                    />
+                    <div className="image-overlay">
+                      <span>View Cows</span>
+                    </div>
+                  </div>
+                </Link>
+                <div className="goshala-info">
+                  <h2 className="goshala-name">{goshala.goshalaName || goshala.name}</h2>
+                  <p className="goshala-location">
+                    {goshala.city && `${goshala.city}, `}
+                    {goshala.district && `${goshala.district}, `}
+                    {goshala.state}
+                  </p>
+                  <button 
+                    className="more-info-btn"
+                    onClick={handleMore(goshala)}
+                  >
+                    More Info
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="no-goshalas">
+              <p>No goshalas available at the moment.</p>
+            </div>
+          )}
+        </div>
+
         {isModalOpen && selectedGoshala && (
-          <GaushalaInfoCard goshala={selectedGoshala} onClose={handleFormClose} />
+          <GaushalaInfoCard 
+            goshala={selectedGoshala} 
+            onClose={handleFormClose} 
+          />
         )}
       </div>
     </div>
