@@ -81,6 +81,7 @@ export default function NavbarGo() {
                         <Link to="/GohomePage" className="nav-link">Home</Link>
                         <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); openRequestsModal(); }}>Adoption Requests</a>
                         <a href="/#" className="nav-link" onClick={(e)=>{e.preventDefault();openAddCowModal();}}>Add Cows</a>
+                        <a href="/info" className="nav-link">Gaushala Info</a>
                         {/* <Link to="/home" className="nav-link">Contact</Link> */}
                         <Link to="/logout" className="nav-link">Logout</Link>
                         

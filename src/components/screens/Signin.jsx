@@ -20,54 +20,98 @@ const SigninSignup = () => {
   };
 
   // Handle login API request
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setError("");
+
+  //   try {
+  //     const response = await axios.post("http://127.0.0.1:5000/loginn", formData);
+  //     const  token  = response.data.token;
+     
+      
+      
+  //     if(response.data.role == "user"){
+  //       alert("User login successful!");
+  //       window.location.href = "/home";
+  //       localStorage.setItem("token", token);
+  //     }
+  //     else if(response.data.role == "admin"){
+  //       alert("Admin login successful!");
+  //       window.location.href = "/admin";
+  //       localStorage.setItem("token", token);
+  //     }
+  //     else{
+  //       if(response.data.approval==false){
+  //         window.location.href = "/pending";
+
+  //       }
+  //       else{
+  //         if(response.data.profile==true){
+  //           window.location.href = "/profileForm";
+  //         }
+  //         else{
+  //     alert("Goshala login successful!");
+  //     window.location.href = "/GohomePage";
+  //     console.log(response)
+  //     localStorage.setItem("token", token);
+  //     localStorage.setItem("goshala",response.data.goshala)  
+  //       }
+  //     }
+  //     }
+     
+  //   } catch (err) {
+  //     setError("Somenthing went wrong",err);
+      
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
+  e.preventDefault();
+  setLoading(true);
+  setError("");
 
-    try {
-      const response = await axios.post("http://127.0.0.1:5000/loginn", formData);
-      const  token  = response.data.token;
-     
-      
-      
-      if(response.data.role == "user"){
-        alert("User login successful!");
-        window.location.href = "/home";
-        localStorage.setItem("token", token);
-      }
-      else if(response.data.role == "admin"){
-        alert("Admin login successful!");
-        window.location.href = "/admin";
-        localStorage.setItem("token", token);
-      }
-      else{
-        if(response.data.approval==false){
-          window.location.href = "/pending";
+  try {
+    const response = await axios.post("http://127.0.0.1:5000/loginn", formData);
+    const token = response.data.token;
 
-        }
-        else{
-          if(response.data.profile==true){
-            window.location.href = "/profileForm";
-          }
-          else{
-      alert("Goshala login successful!");
-      window.location.href = "/GohomePage";
-      console.log(response)
+    if (response.data.role === "user") {
+      alert("User login successful!");
+      window.location.href = "/home";
       localStorage.setItem("token", token);
-      localStorage.setItem("goshala",response.data.goshala)
-      localStorage.setItem("isProfile",response.data.profile)  
+    } else if (response.data.role === "admin") {
+      alert("Admin login successful!");
+      window.location.href = "/admin";
+      localStorage.setItem("token", token);
+    } else {
+      if (response.data.approval === false) {
+        window.location.href = "/pending";
+      } else {
+        // Handle Goshala specific logic
+        if (response.data.profile === true) {
+          // Profile is not completed, redirect to profileForm
+          localStorage.setItem("token", token);
+          alert("Please complete your profile!");
+          window.location.href = "/profileForm";
+          localStorage.setItem("goshala", response.data.goshala);
+        } else {
+         
+          alert("Goshala login successful!");
+          window.location.href = "/GohomePage";
+          localStorage.setItem("token", token);
+          localStorage.setItem("goshala", response.data.goshala);
         }
       }
-      }
-     
-    } catch (err) {
-      setError("Somenthing went wrong",err);
-      
-    } finally {
-      setLoading(false);
     }
-  };
+  } catch (err) {
+    setError("Something went wrong", err);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="signContainer">
